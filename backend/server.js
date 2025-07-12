@@ -11,6 +11,7 @@ const dashboardRoutes = require("./routes/dashboardRoutes");
 const app = express();
 
 // Middleware to handle CORS
+//try
 app.use(
   cors({
     origin: process.env.CLIENT_URL || "*", 
