@@ -14,11 +14,12 @@ const app = express();
 //try
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "*", 
+    origin: "https://expense-tracker-ajayvir-singhs-projects.vercel.app", // ✅ Replace with your actual Vercel URL
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"], 
+    credentials: true,
   })
 );
+
 
 app.use(express.json());
 
