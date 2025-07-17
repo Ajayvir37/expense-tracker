@@ -9,6 +9,6 @@ export default defineConfig({
     outDir: 'dist',
   },
   server: {
-    historyApiFallback: true, // ⚠️ important for Vercel SPA routing
+    historyApiFallback: true, 
   }
 })
