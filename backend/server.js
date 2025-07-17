@@ -12,14 +12,25 @@ const app = express();
 
 // Middleware to handle CORS
 //try
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://expense-tracker-ajayvir-singhs-projects.vercel.app",
+];
+
 app.use(
   cors({
-    origin: "https://expense-tracker-ajayvir-singhs-projects.vercel.app", // ✅ Replace with your actual Vercel URL
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like mobile apps, curl, Postman)
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
-
 
 app.use(express.json());
 
