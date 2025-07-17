@@ -10,14 +10,22 @@ const expenseRoutes = require("./routes/expenseRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
 
 const app = express();
+const requiredEnvVars = ['JWT_SECRET', 'MONGO_URI'];
+requiredEnvVars.forEach(envVar => {
+  if (!process.env[envVar]) {
+    console.error(`Missing required environment variable: ${envVar}`);
+    process.exit(1);
+  }
+});
 
 // --- CORS Configuration ---
+// Add environment variable for dynamic origin handling
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://expense-tracker-ajayvir-singhs-projects.vercel.app",
+  process.env.FRONTEND_URL, // Use environment variable
   "https://expense-tracker-brown-seven.vercel.app"
-  // Add more domains here if needed
 ];
+
 
 // Define CORS options for robust handling
 const corsOptions = {
