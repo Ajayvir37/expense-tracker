@@ -15,6 +15,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:5173",
   "https://expense-tracker-ajayvir-singhs-projects.vercel.app",
+  "https://expense-tracker-brown-seven.vercel.app", // Add your Vercel deployed URL here!
+  // Add any custom domains you use as origins, if any
 ];
 
 app.use(
