@@ -18,13 +18,15 @@ requiredEnvVars.forEach(envVar => {
   }
 });
 
-// --- CORS Configuration ---
-// Add environment variable for dynamic origin handling
+
+// Should be changed to:
+// backend/server.js
+// ...
 const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.FRONTEND_URL, // Use environment variable
-  "https://expense-tracker-brown-seven.vercel.app"
+  "http://localhost:5173", // You can keep this for local testing or remove it if you only want it to work when deployed
+  process.env.FRONTEND_URL, // This is essential for your deployed frontend to communicate with the backend
 ];
+// ...
 
 
 // Define CORS options for robust handling
