@@ -9,6 +9,7 @@ export default defineConfig({
     outDir: 'dist',
   },
   server: {
-    historyApiFallback: true, 
+    // Remove this line as it's not a valid Vite option
+    // historyApiFallback: true,
   }
 })
